@@ -1,0 +1,70 @@
+.main {
+    max-width: 1300px;
+    margin: 30px auto;
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        // max-width: 1300px;
+        // margin: auto;
+        &__new-movies {
+        }
+        &__all-movies {
+            background: #8F8A8A;
+            border: none;
+            padding: 5px 15px;
+            border-radius: 8px;
+            color: white;
+            transition: all 0.3s;
+            cursor: pointer;
+            &:hover {
+                transform: scale(1.1, 1.1);
+                background: lightcoral;
+            }
+            &:active {
+                transform: scale(1.05, 1.05);
+            }
+        }
+    }
+    
+    &__movies {
+        font-size: 18px;
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        margin: 20px 0;
+        &__movie {
+            margin: 10px 10px;
+            max-width: 200px;
+            a {
+                text-decoration: none;
+                color: black;
+            }
+            &__image {
+                width: 200px;
+                height: 300px;
+            }
+            &__name {
+                padding: 10px 0;
+                font-weight: bold;
+            }
+        }
+    }
+    &__more {
+       display: block;
+       margin: 0 auto; 
+       background: lightcoral;
+       border: none;
+       padding: 5px 15px;
+       border-radius: 8px;
+       color: white;
+       transition: all 0.3s;
+       height: 37px;
+       cursor: pointer;
+       &:hover {
+           transform: scale(1.1, 1.1);
+       }
+       &:active {
+           transform: scale(1.05, 1.05);
+       }
+    }
+}

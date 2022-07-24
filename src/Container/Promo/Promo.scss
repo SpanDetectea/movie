@@ -1,4 +1,50 @@
 .promo {
     width: 100%;
-    
+    margin-top:70px;
+    position: relative;
+    z-index: 2;
+    &__wrapper {
+        color: white;
+        position: absolute;
+        width: 90%;
+        left: 10%;
+        top: 30%;
+        z-index: 3;
+        &__name {
+            font-size: 3em;
+            margin-bottom: 40px; 
+            text-shadow: 1px 1px black,
+            1px -1px black,
+            -1px 1px black,
+            -1px -1px black;
+        }
+        &__description {
+            width: 40%;
+            font-size: 1.3em;
+            margin-bottom: 40px; 
+            text-shadow: 1px 1px black,
+            1px -1px black,
+            -1px 1px black,
+            -1px -1px black;
+        }
+        &__more {
+            border: none;
+            border-radius: 7px;
+            background: radial-gradient(96.72% 187.09% at 0 100.29%,#ff5c00 5.21%,#ea507c 25.52%,#b941ef 48.44%,#5b61ff 70.83%,#21bee7 93.75%);;
+            padding: 8px 15px;
+            color: white;
+            font-size: 1.3em;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            transition: transform 0.3s;
+            &__arrow {
+                padding-left: 15px;
+                width: 40px;
+            }
+            &:active {
+                transform: scale(0.95, 0.95);
+            }
+        }
+    }
 }

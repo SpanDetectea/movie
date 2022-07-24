@@ -1,18 +1,21 @@
 import { ControlBar, Player, ReplayControl } from 'video-react';
 import './Promo.scss';
+import promo from '../../videos/promo.mp4';
+import arrow from '../../images/promo-arrow-right.png';
 
 function Promo() {
     return <div className="promo">
         <div className="promo__wrapper">
-            <h1></h1>
-            <p></p>
-            <button></button>
+            <h1 className='promo__wrapper__name'>Форсаж</h1>
+            <p className='promo__wrapper__description'>Коп под прикрытием внедряется в банду стритрейсеров и становится одним из них. Первая часть гоночной франшизы</p>
+            <button className='promo__wrapper__more'>
+                Подробнее
+                <img src={arrow} className = 'promo__wrapper__more__arrow' />
+            </button>
         </div>
         <div className="promo__video">
-            Video here
-            <Player autoPlay src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4" muted height={20}>
-                <ControlBar autoHide={false} className="my-class" />
-            </Player>
+            <video autoPlay muted loop src={promo} width='100%'>
+            </video>
         </div>
     </div>
 }

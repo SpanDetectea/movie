@@ -5,6 +5,7 @@ import {
   Route
 } from "react-router-dom";
 import NormalyPage from './Container/NormalyPage';
+import AboutFilm from './AboutFilm/AboutFilm';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       {/* <Header /> */}
       <Routes>
         <Route path="/" element = {<NormalyPage/> }/>
+        <Route path="/film/:filmId" element = {<AboutFilm/> }/>
           {/* <Header /> */}
       </Routes>
     </div>
