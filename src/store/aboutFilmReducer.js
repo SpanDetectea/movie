@@ -8,10 +8,11 @@ let initialState = {
 const aboutFilmReducer = (state = initialState, action) => {
     switch (action.type) {
         case GET_FILM:
-            console.log(action.data);
+            let newFilm = [];
+            newFilm.push(action.data)
             return {
                 ...state,
-                film: action.data.films
+                film: newFilm
             };
         default: return state;
     }

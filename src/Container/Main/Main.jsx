@@ -18,9 +18,9 @@ function Main({ films, getFilms, getMoreFilms, getInfoAboutFilm, getFilm }) {
         moviesApi.getMovies(page + 1).then(response => getMoreFilms(response));
         setPage(page + 1);
     }
-    const getInfoAF = (filmId) => {
-        moviesApi.getMovieInfo(filmId).then(response => getFilm(response));
-    }
+    // const getInfoAF = (filmId) => {
+    //     moviesApi.getMovieInfo(filmId).then(response => getFilm(response));
+    // }
     return <div className="main">
         <div className="main__header">
             <h1 className='main__header__new-movies'>Новые фильмы</h1>
@@ -29,7 +29,7 @@ function Main({ films, getFilms, getMoreFilms, getInfoAboutFilm, getFilm }) {
         <div className='main__movies'>
             {films !== null && films.map(item => {
                 return (
-                    <div className='main__movies__movie' key={item.filmId} onClick={() => getInfoAF(item.filmId)}>
+                    <div className='main__movies__movie' key={item.filmId}>
                         <NavLink to={'/film/' + item.filmId}>
                             <img src={item.posterUrlPreview} alt="" className='main__movies__movie__image' />
                             <p className='main__movies__movie__name'>{item.nameRu}</p>
