@@ -5,22 +5,26 @@ import { moviesApi } from '../api/api';
 import { getFilm } from '../store/aboutFilmReducer';
 import { connect } from 'react-redux';
 import Header from '../Header/Header';
+import { useNavigate } from "react-router-dom";
+import AddInformation from './AddInformation/AddInformation';
 
 function AboutFilm({ getFilm, film }) {
     const { filmId } = useParams();
 
+    let navigate = useNavigate();
+
     useEffect(() => {
-        // console.log('-------------------------------------------');
         moviesApi.getMovieInfo(filmId).then(response => getFilm(response));
     }, [])
-    // console.log(film.length);
     return <>
         <Header />
         <div className="aboutFilm">
+            <button onClick={() => navigate('/')} className='aboutFilm__btnBack'>{'<'} Назад</button>
             {film.length > 0 && film.map((item) => {
                 return (<React.Fragment key={item.kinopoiskId}>
                     <img src={item.posterUrlPreview} className='aboutFilm__image' />
                     <div className="aboutFilm__wrapper">
+                    {/* <img src={item.posterUrlPreview} className='aboutFilm__wrapper__image' /> */}
                         <h1 className='aboutFilm__wrapper__name'>{item.nameRu}</h1>
                         <p className='aboutFilm__wrapper__nameOriginal'>{item.nameOriginal}<span className='aboutFilm__wrapper__nameOriginal__ageLimits'> {item.ratingAgeLimits.slice(3) + '+'}</span></p>
                         <button className='aboutFilm__wrapper__viewing btn-description'>Смотреть</button>
@@ -32,7 +36,7 @@ function AboutFilm({ getFilm, film }) {
                                 return index === item.countries.length - 1 ? `${i.country}` : `${i.country}, `;
                             })}</span></li>
                             <li className='aboutFilm__wrapper__list__par'><span>Жанр</span><span>{item.genres.map((i, index) => {
-                                return index === item.genres.length - 1 ? `${i.genre}` : `${i.genre}, `; 
+                                return index === item.genres.length - 1 ? `${i.genre}` : `${i.genre}, `;
                             })}</span></li>
                             <li className='aboutFilm__wrapper__list__par'><span>Слоган</span><span>{item.slogan}</span></li>
                             <li className='aboutFilm__wrapper__list__par'><span>Возраст</span><span>{item.ratingAgeLimits.slice(3) + '+'}</span></li>
@@ -42,6 +46,7 @@ function AboutFilm({ getFilm, film }) {
                 </React.Fragment>)
             })}
         </div>
+        <AddInformation />
     </>
 }
 const mapStateToProps = (state) => {

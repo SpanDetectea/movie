@@ -1,4 +1,3 @@
-// import * as axios from "axios";
 import axios from "axios";
 
 const instance = axios.create({
@@ -6,7 +5,6 @@ const instance = axios.create({
     headers: {
         // 'X-API-KEY': '2db36e01-65c5-4c85-bcc8-42996fbff616', //gmail
         'X-API-KEY': '0eef1eeb-c3c0-4165-ae66-e2a7074cd6a3', //yandex
-        // 'Content-Type': 'application/json',
     }
 });
 
@@ -19,5 +17,8 @@ export const moviesApi = {
     },
     getMovieInfo(movieId) {
         return instance.get(`${movieId}`).then(response => response.data);
+    },
+    getFacts(movieId) {
+        return instance.get(`${movieId}/facts`).then(response => response.data);
     }
 }
