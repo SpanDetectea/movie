@@ -20,5 +20,8 @@ export const moviesApi = {
     },
     getFacts(movieId) {
         return instance.get(`${movieId}/facts`).then(response => response.data);
+    },
+    getSimilarFilms(movieId) {
+        return instance.get(`${movieId}/similars`).then(response => response.data);
     }
 }

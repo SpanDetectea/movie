@@ -7,6 +7,8 @@ import { connect } from 'react-redux';
 import Header from '../Header/Header';
 import { useNavigate } from "react-router-dom";
 import AddInformation from './AddInformation/AddInformation';
+import SimilarFilm from './SimilarFilm/SimilarFilm';
+import Footer from '../Footer/Footer';
 
 function AboutFilm({ getFilm, film }) {
     const { filmId } = useParams();
@@ -41,12 +43,15 @@ function AboutFilm({ getFilm, film }) {
                             <li className='aboutFilm__wrapper__list__par'><span>Слоган</span><span>{item.slogan}</span></li>
                             <li className='aboutFilm__wrapper__list__par'><span>Возраст</span><span>{item.ratingAgeLimits.slice(3) + '+'}</span></li>
                             <li className='aboutFilm__wrapper__list__par'><span>Время</span><span>{item.filmLength}</span></li>
+                            <li className='aboutFilm__wrapper__list__par'><span>Рейтинг</span><span>{item.ratingKinopoisk}</span></li>
                         </ul>
                     </div>
                 </React.Fragment>)
             })}
         </div>
         <AddInformation />
+        <SimilarFilm />
+        <Footer />
     </>
 }
 const mapStateToProps = (state) => {

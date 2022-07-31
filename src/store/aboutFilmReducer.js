@@ -1,10 +1,13 @@
 
 const GET_FILM = 'GET_FILM';
 const GET_FACTS = 'GET_FACTS';
+const GET_SIMILAR_FILM = 'GET_SIMILAR_FILM';
 
 let initialState = {
     film: [],
-    facts: []
+    facts: [],
+    similars: [],
+    similarsTotal: null
 }
 
 const aboutFilmReducer = (state = initialState, action) => {
@@ -17,10 +20,16 @@ const aboutFilmReducer = (state = initialState, action) => {
                 film: newFilm
             };
         case GET_FACTS:
-            // console.log(action.data.items);
             return {
                 ...state,
                 facts: [...action.data.items]
+            };
+        case GET_SIMILAR_FILM:
+            console.log(action.data);
+            return {
+                ...state,
+                similars: [...action.data.items],
+                similarsTotal:  action.data.total
             };
         default: return state;
     }
@@ -30,6 +39,9 @@ export const getFilm = (data) => {
 };
 export const getFacts = (data) => {
     return {type: GET_FACTS, data}
+};
+export const getSimilatFilms = (data) => {
+    return {type: GET_SIMILAR_FILM, data}
 };
 
 export default aboutFilmReducer;

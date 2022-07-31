@@ -31,6 +31,7 @@
         &__movie {
             margin: 10px 10px;
             max-width: 200px;
+            position: relative;
             a {
                 text-decoration: none;
                 color: black;
@@ -42,6 +43,15 @@
             &__name {
                 padding: 10px 0;
                 font-weight: bold;
+            }
+            &__rating {
+                position: absolute;
+                top: 5px;
+                left: 5px;
+                color: white;
+                background: rgb(78, 212, 78);
+                padding: 4px;
+                border-radius: 4px;
             }
         }
     }
