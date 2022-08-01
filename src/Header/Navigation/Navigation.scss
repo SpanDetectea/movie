@@ -15,7 +15,11 @@
         background: rgb(75, 73, 73);
         width: 25%;
         user-select: none;
-
+        @media screen and (max-width: 660px) {
+            padding: 70px 20px 20px 5px;
+            width: 40%;
+            font-size: 0.8em;
+        }
         & ul {
             list-style-type: none;
             display: flex;

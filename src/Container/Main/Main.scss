@@ -4,6 +4,7 @@
     &__header {
         display: flex;
         justify-content: space-between;
+        margin: 0 6px;
         &__all-movies {
             background: #8F8A8A;
             border: none;
@@ -19,6 +20,9 @@
             &:active {
                 transform: scale(1.05, 1.05);
             }
+        }
+        @media screen and (max-width:440px) {
+         font-size: 0.8em;   
         }
     }
     
