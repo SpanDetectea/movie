@@ -10,6 +10,7 @@
         background: none;
         border: none;
         cursor: pointer;
+        font-family: 'Oswald', sans-serif;
         transition: transform 1s;
         &:hover {
             transform: rotate(360deg);
@@ -21,6 +22,9 @@
     }
     &__wrapper {
         margin-left: 30px;
+        &__name {
+            font-family: 'Oswald', sans-serif;
+        }
         &__nameOriginal {
             color: grey;
             margin: 20px 0;
@@ -32,12 +36,14 @@
         }
         &__description {
             margin: 20px 0;
+            font-family: 'Oswald', sans-serif;
         }
         &__list {
             list-style-type: none;
             &__par {
                 margin: 15px 0;
                 display: flex;
+                font-family: 'Raleway', sans-serif;
                 span:first-child {
                     min-width: 200px;
                     color: rgb(100, 100, 100);
@@ -68,6 +74,7 @@
     cursor: pointer;
     font-weight: 600;
     transition: all 0.3s;
+    font-family: 'Open Sans', sans-serif;
     &:active {
         transform: scale(0.95, 0.95);
     }

@@ -17,7 +17,7 @@ function AboutFilm({ getFilm, film }) {
 
     useEffect(() => {
         moviesApi.getMovieInfo(filmId).then(response => getFilm(response));
-    }, [])
+    }, [filmId])
     return <>
         <Header />
         <div className="aboutFilm">

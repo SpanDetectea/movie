@@ -1,4 +1,62 @@
 .similarFilm {
     max-width: 1300px;
     margin: 60px auto;
+    display: grid;
+    grid-auto-columns: 1fr;
+    grid-auto-rows: 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 70px 1fr;
+    gap: 0px 0px;
+    grid-template-areas:
+        "similarFilm__title similarFilm__nav"
+        "similarFilm__wrapper similarFilm__wrapper";
+
+    &__title {
+        justify-self: start;
+        grid-area: &__title;
+        font-family: 'Oswald', sans-serif;
+    }
+
+    &__nav {
+        justify-self: end;
+        grid-area: &__nav;
+        &__style {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            color: #a7a7a7;
+            font-weight: bold;
+            margin: 0 10px;
+            border: 1px solid #a7a7a7;
+            background: white;
+            transition: 0.3s all;
+            cursor: pointer;
+            &:hover {
+                transform: scale(1.03);
+                background: #a7a7a7;
+                color: white;
+            }
+            &:disabled {
+                color: #a7a7a7;
+            }
+        }
+    }
+
+    &__wrapper {
+        width: 100%;
+        grid-area: similarFilm__wrapper;
+
+        &__container {
+
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+
+            &__filmInfo {
+                img {
+                    width: 300px;
+                }
+            }
+        }
+    }
 }
