@@ -36,7 +36,7 @@ function AboutFilm({ getFilm, film }) {
                         {/* <img src={item.posterUrlPreview} className='aboutFilm__wrapper__image' /> */}
                         <h1 className='aboutFilm__wrapper__name'>{item.nameRu}</h1>
                         <p className='aboutFilm__wrapper__nameOriginal'>{item.nameOriginal}<span className='aboutFilm__wrapper__nameOriginal__ageLimits'> {item.ratingAgeLimits.slice(3) + '+'}</span></p>
-                        <button className='aboutFilm__wrapper__viewing btn-description'>Смотреть</button>
+                        <a href={`https://gg.xooxo.cc/film/${item.kinopoiskId}`}><button className='aboutFilm__wrapper__viewing btn-description'>Смотреть</button></a>
                         <button className='aboutFilm__wrapper__favorites btn-description'>Буду смотреть</button>
                         <h2 className='aboutFilm__wrapper__description'>О фильме</h2>
                         <ul className='aboutFilm__wrapper__list'>
