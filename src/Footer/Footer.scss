@@ -1,0 +1,12 @@
+.footer {
+    background: rgb(31, 29, 29);
+    height: 70px;
+    &__name {
+        color: rgb(190, 190, 190);
+        height: 100%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        margin-right: 10px;
+    }
+}

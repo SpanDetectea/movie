@@ -36,6 +36,7 @@
             margin: 10px 10px;
             max-width: 200px;
             position: relative;
+            transition: transform 0.3s;
             a {
                 text-decoration: none;
                 color: black;
@@ -43,6 +44,7 @@
             &__image {
                 width: 200px;
                 height: 300px;
+                border-radius: 5px;
             }
             &__name {
                 padding: 10px 0;
@@ -56,6 +58,9 @@
                 background: rgb(78, 212, 78);
                 padding: 4px;
                 border-radius: 4px;
+            }
+            &:hover {
+                transform: translateY(-10px);
             }
         }
     }

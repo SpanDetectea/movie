@@ -1,6 +1,9 @@
 .addInformation {
     max-width: 1300px;
     margin: 0 auto;
+    @media screen and (max-width: 700px) {
+        margin: 0 10px;
+    }
     &__wrapper {
         font-family: 'Open Sans', sans-serif;
         &__header {

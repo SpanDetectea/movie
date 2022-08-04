@@ -9,15 +9,22 @@ import { useNavigate } from "react-router-dom";
 import AddInformation from './AddInformation/AddInformation';
 import SimilarFilm from './SimilarFilm/SimilarFilm';
 import Footer from '../Footer/Footer';
+import * as Scroll from 'react-scroll';
 
 function AboutFilm({ getFilm, film }) {
     const { filmId } = useParams();
 
+    let scroll = Scroll.animateScroll;
     let navigate = useNavigate();
 
     useEffect(() => {
         moviesApi.getMovieInfo(filmId).then(response => getFilm(response));
+        scrollToTop();
     }, [filmId])
+
+    function scrollToTop () {
+        scroll.scrollToTop();
+    }
     return <>
         <Header />
         <div className="aboutFilm">
@@ -26,7 +33,7 @@ function AboutFilm({ getFilm, film }) {
                 return (<React.Fragment key={item.kinopoiskId}>
                     <img src={item.posterUrlPreview} className='aboutFilm__image' />
                     <div className="aboutFilm__wrapper">
-                    {/* <img src={item.posterUrlPreview} className='aboutFilm__wrapper__image' /> */}
+                        {/* <img src={item.posterUrlPreview} className='aboutFilm__wrapper__image' /> */}
                         <h1 className='aboutFilm__wrapper__name'>{item.nameRu}</h1>
                         <p className='aboutFilm__wrapper__nameOriginal'>{item.nameOriginal}<span className='aboutFilm__wrapper__nameOriginal__ageLimits'> {item.ratingAgeLimits.slice(3) + '+'}</span></p>
                         <button className='aboutFilm__wrapper__viewing btn-description'>Смотреть</button>
