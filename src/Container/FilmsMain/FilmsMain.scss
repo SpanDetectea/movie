@@ -1,4 +1,79 @@
 .filmsMain {
-    margin-top: 70px;
+    // margin-top: 70px;
     max-width: 1300px;
+    margin: 120px auto 0 auto;
+
+    &__header {
+        &__description {
+            margin: 20px 0 50px 0;
+        }
+    }
+
+    &__filter {
+        &__count {
+            max-width: 200px;
+            display: grid;
+            grid-auto-columns: 1fr;
+            grid-auto-rows: 1fr;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 40px 1fr;
+            gap: 0px 0px;
+            grid-template-areas:
+                "name hide"
+                "values values";
+
+            &__name {
+                justify-self: start;
+                grid-area: name;
+            }
+
+            &__values {
+                grid-area: values;
+                width: 100%;
+                display: grid; 
+                // grid-auto-columns: 1fr; 
+                // grid-auto-rows: 1fr; 
+                grid-template-columns: 100px 100px; 
+                grid-template-rows: 1fr 1fr; 
+                // gap: 0px 0px; 
+                grid-template-areas: 
+                  "from upTo"
+                  "range range"; 
+                &__from {
+                    max-width: 94px;
+                    grid-area: from;
+                    // margin: 0 2px;
+                    &__input {
+                        max-width: 94px;
+                    }
+                }
+                &__upTo {
+                    max-width: 94px;
+                    grid-area: upTo;
+                    // margin: 0 2px;
+                    &__input {
+                        max-width: 94px;
+                        // margin: 0 2px;
+                    }
+                }
+                &-hide {
+                    display: none;
+                }
+                &__range {
+                    width: 100%;
+                    grid-area: range;
+                }
+            }
+
+            &__hide {
+                justify-self: end;
+                grid-area: hide;
+                align-self: start;  
+                transform: rotate(-90deg);
+                background: none;
+                border: none;
+                cursor: pointer;
+            }
+        }
+    }
 }

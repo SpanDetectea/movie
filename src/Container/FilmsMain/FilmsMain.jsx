@@ -1,4 +1,5 @@
 
+import RangeComponent from '../../common/Range/Range';
 import './FilmsMain.scss';
 
 function FilmsMain() {
@@ -12,7 +13,7 @@ function FilmsMain() {
                 <h2 className="filmsMain__filter__count__name">
                     Рейтинг
                 </h2>
-                <button>
+                <button className="filmsMain__filter__count__hide">
                     >
                 </button>
                 <div className="filmsMain__filter__count__values">
@@ -23,13 +24,15 @@ function FilmsMain() {
                         <input type="text" className="filmsMain__filter__count__values__from__input" value={1} />
                     </label>
                     <label htmlFor="" className="filmsMain__filter__count__values__upTo">
-                        <span className="filmsMain__filter__count__values__from__header">
+                        <span className="filmsMain__filter__count__values__upTo__header">
                             До
                         </span>
-                        <input type="text" className="filmsMain__filter__count__values__from__input" value={10} />
+                        <input type="text" className="filmsMain__filter__count__values__upTo__input" value={10} />
                     </label>
-                    <input type="range" min={0} max = {100} step = {1} />
+                    {/* <input type="range" min={0} max={100} step={1} className="filmsMain__filter__count__values__range"/> */}
+                    <RangeComponent />
                 </div>
+
             </div>
 
         </div>
