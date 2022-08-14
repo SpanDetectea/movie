@@ -2,21 +2,24 @@ import React, { useState } from "react";
 import { Range, getTrackBackground } from "react-range";
 // import "./styles.css";
 
-const RangeComponent = () => {
+const RangeComponent = ({ratingValues, setRatingValues
+}) => {
   const STEP = 1;
   const MIN = 1;
   const MAX = 10;
-  const [values, setValues] = useState([1, 10]);
-
+  // const [values, setValues] = useState([MIN, MAX]);
+  let values = ratingValues;
+  console.log(ratingValues);
   return (
     <Range
       values={values}
       step={STEP}
       min={MIN}
       max={MAX}
-      onChange={values => {
-        console.log(values);
-        setValues(values);
+      onChange={e => {
+        console.log(e);
+        // setValues(e);
+        setRatingValues(e);
       }}
       renderTrack={({ props, children }) => (
         <div
@@ -24,9 +27,11 @@ const RangeComponent = () => {
           onTouchStart={props.onTouchStart}
           style={{
             // {...props.style, }
+            gridArea: 'range',
             height: "36px",
             display: "flex",
-            width: "100%"
+            width: 'auto',
+            margin: "0 6px 0 6px"
           }}
         >
           <div
