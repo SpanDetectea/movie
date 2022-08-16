@@ -18,6 +18,32 @@
         display: flex;
         align-items: center;
         width: 30%;
+        position: relative;
+        &__wrapper {
+            width: 100%;
+            position: absolute;
+            top: 20px;
+            background: rgb(75, 73, 73);
+            max-height: 200px;
+            padding: 0 10px;
+            overflow: auto;
+            border-radius: 0 0 0 12px;
+            &__film {
+                display: flex;
+                align-items: center;
+                width: 100%;
+                margin: 10px 0;
+                border: 1px solid white;
+                border-radius: 12px;
+                &__img {
+                    width: 10%;
+                    border-radius: 12px 0 0 12px;
+                }
+                &__name {
+                    margin: 0 20px;
+                }
+            }
+        }
         &__text {
             height: 25px;
             border: none;
