@@ -10,14 +10,16 @@ import AddInformation from './AddInformation/AddInformation';
 import SimilarFilm from './SimilarFilm/SimilarFilm';
 import Footer from '../Footer/Footer';
 import * as Scroll from 'react-scroll';
+import {setFilms} from "../store/headerReducer";
 
-function AboutFilm({ getFilm, film }) {
+function AboutFilm({ getFilm, film, setFilms }) {
     const { filmId } = useParams();
 
     let scroll = Scroll.animateScroll;
     let navigate = useNavigate();
 
     useEffect(() => {
+        // setFilms([]);
         moviesApi.getMovieInfo(filmId).then(response => getFilm(response));
         scrollToTop();
     }, [filmId])
@@ -67,5 +69,6 @@ const mapStateToProps = (state) => {
     }
 }
 export default connect(mapStateToProps, {
-    getFilm
+    getFilm,
+    setFilms
 })(AboutFilm);
