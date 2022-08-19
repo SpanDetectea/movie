@@ -22,7 +22,9 @@ function Main({ films, getFilms, getMoreFilms, getInfoAboutFilm, getFilm }) {
     return <div className="main">
         <div className="main__header">
             <h1 className='main__header__new-movies'>Новые фильмы</h1>
-            <button className='main__header__all-movies'>Смотреть все</button>
+            <NavLink to='/movie'>
+                <button className='main__header__all-movies'>Смотреть все</button>
+            </NavLink>
         </div>
         <div className='main__movies'>
             {films !== null && films.map(item => {
