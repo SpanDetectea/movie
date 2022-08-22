@@ -2,48 +2,50 @@
 import { useState } from 'react';
 import RangeComponent from '../../common/Range/Range';
 import './FilmsMain.scss';
-import {setRating} from '../../store/filmsMainReducer';
-import {connect} from 'react-redux'
+import { setRating } from '../../store/filmsMainReducer';
+import { connect } from 'react-redux'
+import Filters from './filters/Filters';
+import { RATING__MAX, RATING__MIN } from './filters/filtersConst';
 
-function FilmsMain({setRating, rating}) {
+function FilmsMain({rating }) {
 
-    const [ratingValues, setRatingValues] = useState([1, 10])
-    const [isViewRating, setIsViewRating] = useState(true);
+    // const [ratingValues, setRatingValues] = useState([1, 10])
+    // const [isViewRating, setIsViewRating] = useState(true);
 
-    const ratingFrom = (e) => {
-        let prop = +e.target.value;
-        console.log(Number.isNaN(prop));
-        if ((prop > 10) || (prop < 0) || (Number.isNaN(prop))) {
-            return setRatingValues([1, ratingValues[1]])
-        }
-        setRatingValues([prop, ratingValues[1]])
-        setRating(ratingValues)
-    }
-    const validateRating1 = (e) => {
-        let prop = +e.target.value;
-        if ((prop === '') || (prop > ratingValues[1])) {
-            setRatingValues([1, ratingValues[1]])
-        }
-        setRating(ratingValues)
-    }
-    const validateRating2 = (e) => {
-        let prop = +e.target.value;
-        if ((prop === '') || (prop < ratingValues[0])) {
-            setRatingValues([ratingValues[0], 10])
-        }
-        setRating(ratingValues)
-    }
-    const ratingUpTo = (e) => {
-        let prop = +e.target.value;
-        if ((prop > 10) || (prop < 0) || (Number.isNaN(prop))) {
-            return setRatingValues([ratingValues[0], 10])
-        }
-        setRatingValues([ratingValues[0], prop])
-        setRating(ratingValues)
-    }
-    const toggleRating = () => {
-        setIsViewRating(!isViewRating)
-    }
+    // const ratingFrom = (e) => {
+    //     let prop = +e.target.value;
+    //     console.log(Number.isNaN(prop));
+    //     if ((prop > 10) || (prop < 0) || (Number.isNaN(prop))) {
+    //         return setRatingValues([1, ratingValues[1]])
+    //     }
+    //     setRatingValues([prop, ratingValues[1]])
+    //     setRating(ratingValues)
+    // }
+    // const validateRating1 = (e) => {
+    //     let prop = +e.target.value;
+    //     if ((prop === '') || (prop > ratingValues[1])) {
+    //         setRatingValues([1, ratingValues[1]])
+    //     }
+    //     setRating(ratingValues)
+    // }
+    // const validateRating2 = (e) => {
+    //     let prop = +e.target.value;
+    //     if ((prop === '') || (prop < ratingValues[0])) {
+    //         setRatingValues([ratingValues[0], 10])
+    //     }
+    //     setRating(ratingValues)
+    // }
+    // const ratingUpTo = (e) => {
+    //     let prop = +e.target.value;
+    //     if ((prop > 10) || (prop < 0) || (Number.isNaN(prop))) {
+    //         return setRatingValues([ratingValues[0], 10])
+    //     }
+    //     setRatingValues([ratingValues[0], prop])
+    //     setRating(ratingValues)
+    // }
+    // const toggleRating = () => {
+    //     setIsViewRating(!isViewRating)
+    // }
 
     return <div className="filmsMain">
         <div className="filmsMain__header">
@@ -51,7 +53,7 @@ function FilmsMain({setRating, rating}) {
             <p className="filmsMain__header__description">Подборка фильмов</p>
         </div>
         <div className="filmsMain__filter">
-            <div className="filmsMain__filter__count">
+            {/* <div className="filmsMain__filter__count">
                 <h2 className="filmsMain__filter__count__name">
                     Рейтинг
                 </h2>
@@ -71,11 +73,13 @@ function FilmsMain({setRating, rating}) {
                         </span>
                         <input type="text" className="filmsMain__filter__count__values__upTo__input" onBlur={(e) => validateRating2(e)} value={ratingValues[1]} onInput={(e) => ratingUpTo(e)} />
                     </label>
-                    <RangeComponent ratingValues={ratingValues} setRatingValues={setRatingValues} setRating={setRating}/>
+                    <RangeComponent ratingValues={ratingValues} setRatingValues={setRatingValues} setRating={setRating} />
                 </div>}
 
 
-            </div>
+            </div> */}
+            <Filters name = 'Рейтинг' min = {RATING__MIN} max={RATING__MAX} minmax = {[RATING__MIN, RATING__MAX]}/>
+            <Filters name = 'Год'/>
             <div className="filmsMain__filter__btns">
                 <button onClick={() => console.log(rating)}>
                     Применить
