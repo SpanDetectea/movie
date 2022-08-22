@@ -1,7 +1,7 @@
 .filmsMain {
-    // margin-top: 70px;
     max-width: 1300px;
     margin: 120px auto 0 auto;
+    padding: 0 20px;
 
     &__header {
         &__description {
@@ -31,18 +31,14 @@
                 grid-area: values;
                 width: 100%;
                 display: grid; 
-                // grid-auto-columns: 1fr; 
-                // grid-auto-rows: 1fr; 
                 grid-template-columns: 100px 100px; 
                 grid-template-rows: 1fr 1fr; 
-                // gap: 0px 0px; 
                 grid-template-areas: 
                   "from upTo"
                   "range range"; 
                 &__from {
                     max-width: 94px;
                     grid-area: from;
-                    // margin: 0 2px;
                     &__input {
                         max-width: 94px;
                     }
@@ -51,10 +47,8 @@
                     max-width: 94px;
                     grid-area: upTo;
                     justify-self: end; 
-                    // margin: 0 2px;
                     &__input {
                         max-width: 94px;
-                        // margin: 0 2px;
                     }
                 }
                 &-hide {
@@ -62,7 +56,6 @@
                 }
                 &__range {
                     width: 100%;
-                    // grid-area: range;
                 }
             }
 
@@ -74,7 +67,11 @@
                 background: none;
                 border: none;
                 cursor: pointer;
+                user-select: none;
             }
         }
     }
+}
+.reverseHide {
+    transform: rotate(90deg);
 }

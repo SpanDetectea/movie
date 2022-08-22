@@ -1,13 +1,11 @@
 import React, { useState } from "react";
 import { Range, getTrackBackground } from "react-range";
-// import "./styles.css";
 
-const RangeComponent = ({ratingValues, setRatingValues
+const RangeComponent = ({ratingValues, setRatingValues, setRating
 }) => {
   const STEP = 1;
   const MIN = 1;
   const MAX = 10;
-  // const [values, setValues] = useState([MIN, MAX]);
   let values = ratingValues;
   console.log(ratingValues);
   return (
@@ -17,8 +15,7 @@ const RangeComponent = ({ratingValues, setRatingValues
       min={MIN}
       max={MAX}
       onChange={e => {
-        console.log(e);
-        // setValues(e);
+        setRating(e);
         setRatingValues(e);
       }}
       renderTrack={({ props, children }) => (
@@ -26,7 +23,6 @@ const RangeComponent = ({ratingValues, setRatingValues
           onMouseDown={props.onMouseDown}
           onTouchStart={props.onTouchStart}
           style={{
-            // {...props.style, }
             gridArea: 'range',
             height: "36px",
             display: "flex",
