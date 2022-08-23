@@ -2,12 +2,13 @@
 import { useState } from 'react';
 import RangeComponent from '../../common/Range/Range';
 import './FilmsMain.scss';
-import { setRating } from '../../store/filmsMainReducer';
+import { setRating, setYear } from '../../store/filmsMainReducer';
 import { connect } from 'react-redux'
 import Filters from './filters/Filters';
-import { RATING__MAX, RATING__MIN } from './filters/filtersConst';
+import { RATING__MAX, RATING__MIN, YEAR__MAX, YEAR__MIN } from './filters/filtersConst';
+import Genres from './filters/Genres';
 
-function FilmsMain({rating }) {
+function FilmsMain({rating, setYear, setRating}) {
 
     // const [ratingValues, setRatingValues] = useState([1, 10])
     // const [isViewRating, setIsViewRating] = useState(true);
@@ -78,8 +79,9 @@ function FilmsMain({rating }) {
 
 
             </div> */}
-            <Filters name = 'Рейтинг' min = {RATING__MIN} max={RATING__MAX} minmax = {[RATING__MIN, RATING__MAX]}/>
-            <Filters name = 'Год'/>
+            <Filters name = 'Рейтинг' min = {RATING__MIN} max={RATING__MAX} setValues = {setRating}/>
+            <Filters name = 'Год' min = {YEAR__MIN} max = {YEAR__MAX} setValues = {setYear}/>
+            <Genres />
             <div className="filmsMain__filter__btns">
                 <button onClick={() => console.log(rating)}>
                     Применить
@@ -96,9 +98,10 @@ function FilmsMain({rating }) {
 }
 let mapStateToProps = (state) => {
     return {
-        rating: state.filmsMain.rating
+        rating: state.filmsMain.rating,
     }
 }
 export default connect(mapStateToProps, {
-    setRating
+    setRating,
+    setYear
 })(FilmsMain);

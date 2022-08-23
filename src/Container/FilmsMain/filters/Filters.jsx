@@ -4,15 +4,15 @@ import '../FilmsMain.scss';
 import { setRating } from '../../../store/filmsMainReducer';
 import { connect } from 'react-redux'
 
-const Filters = ({setRating, name, min, max, minmax }) => {
-    console.log(min, max, minmax);
-    const [ratingValues, setRatingValues] = useState([1, 10])
+const Filters = ({setRating, name, min, max, setValues}) => {
+    console.log(min,max);
+    const [ratingValues, setRatingValues] = useState([min, max])
     const [isViewRating, setIsViewRating] = useState(true);
 
     const ratingFrom = (e) => {
         let prop = +e.target.value;
-        if ((prop > 10) || (prop < 0) || (Number.isNaN(prop))) {
-            return setRatingValues([1, ratingValues[1]])
+        if ((prop > max) || (prop < min-1) || (Number.isNaN(prop))) {
+            return setRatingValues([min, ratingValues[1]])
         }
         setRatingValues([prop, ratingValues[1]])
         setRating(ratingValues)
@@ -20,21 +20,21 @@ const Filters = ({setRating, name, min, max, minmax }) => {
     const validateRating1 = (e) => {
         let prop = +e.target.value;
         if ((prop === '') || (prop > ratingValues[1])) {
-            setRatingValues([1, ratingValues[1]])
+            setRatingValues([min, ratingValues[1]])
         }
         setRating(ratingValues)
     }
     const validateRating2 = (e) => {
         let prop = +e.target.value;
         if ((prop === '') || (prop < ratingValues[0])) {
-            setRatingValues([ratingValues[0], 10])
+            setRatingValues([ratingValues[0], max])
         }
         setRating(ratingValues)
     }
     const ratingUpTo = (e) => {
         let prop = +e.target.value;
-        if ((prop > 10) || (prop < 0) || (Number.isNaN(prop))) {
-            return setRatingValues([ratingValues[0], 10])
+        if ((prop > max) || (prop < min-1) || (Number.isNaN(prop))) {
+            return setRatingValues([ratingValues[0], max])
         }
         setRatingValues([ratingValues[0], prop])
         setRating(ratingValues)
@@ -63,7 +63,7 @@ const Filters = ({setRating, name, min, max, minmax }) => {
                     </span>
                     <input type="text" className="filmsMain__filter__count__values__upTo__input" onBlur={(e) => validateRating2(e)} value={ratingValues[1]} onInput={(e) => ratingUpTo(e)} />
                 </label>
-                <RangeComponent ratingValues={ratingValues} setRatingValues={setRatingValues} setRating={setRating} />
+                <RangeComponent ratingValues={ratingValues} setRatingValues={setRatingValues} setValues={setValues} minV = {min} maxV = {max}/>
             </div>}
 
 

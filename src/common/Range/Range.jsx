@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { Range, getTrackBackground } from "react-range";
 
-const RangeComponent = ({ratingValues, setRatingValues, setRating
+const RangeComponent = ({ratingValues, setRatingValues, setRating, minV, maxV, setValues
 }) => {
   const STEP = 1;
-  const MIN = 1;
-  const MAX = 10;
+  const MIN = minV;
+  const MAX = maxV;
   let values = ratingValues;
   console.log(ratingValues);
   return (
@@ -15,7 +15,7 @@ const RangeComponent = ({ratingValues, setRatingValues, setRating
       min={MIN}
       max={MAX}
       onChange={e => {
-        setRating(e);
+        setValues(e);
         setRatingValues(e);
       }}
       renderTrack={({ props, children }) => (
