@@ -10,9 +10,11 @@
     grid-template-areas:
         "similarFilm__title similarFilm__nav"
         "similarFilm__wrapper similarFilm__wrapper";
+
     @media screen and (max-width: 700px) {
         margin: 60px 10px;
     }
+
     &__title {
         justify-self: start;
         grid-area: &__title;
@@ -22,6 +24,7 @@
     &__nav {
         justify-self: end;
         grid-area: &__nav;
+
         &__style {
             width: 40px;
             height: 40px;
@@ -33,11 +36,13 @@
             background: white;
             transition: 0.3s all;
             cursor: pointer;
+
             &:hover {
                 transform: scale(1.03);
                 background: #a7a7a7;
                 color: white;
             }
+
             &:disabled {
                 color: #a7a7a7;
             }
@@ -49,18 +54,14 @@
         grid-area: similarFilm__wrapper;
 
         &__container {
-
             display: flex;
             flex-direction: row;
             justify-content: space-between;
             margin: 20px 0;
+
             a {
-                margin: 0 5px;
-            }
-            &__filmInfo {
-                img {
-                    width: 100%;
-                }
+                text-decoration: none;
+                color: rgb(31, 29, 29);
             }
         }
     }

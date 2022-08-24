@@ -1,6 +1,6 @@
-import Header from "../Header/Header";
-import Footer from "../Footer/Footer";
-import FilmsMain from "./FilmsMain/FilmsMain";
+import Header from "../../Header/Header";
+import Footer from "../../Footer/Footer";
+import FilmsMain from "../FilmsMain/FilmsMain";
 
 
 function MoviePage () {

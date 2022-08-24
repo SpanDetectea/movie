@@ -1,4 +1,4 @@
-import { RATING__MAX, RATING__MIN, YEAR__MAX, YEAR__MIN } from "../Container/FilmsMain/filters/filtersConst";
+import { RATING__MAX, RATING__MIN, YEAR__MAX, YEAR__MIN } from "../Content/FilmsMain/filters/filtersConst";
 
 const SET__RATING = 'SET__RATING';
 const SET__YEAR = 'SET__YEAR';

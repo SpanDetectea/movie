@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
-import { moviesApi } from '../../api/api';
+import { moviesApi } from '../../../api/api';
 import './AddInformation.scss';
-import {getFacts} from '../../store/aboutFilmReducer';
+import {getFacts} from '../../../store/aboutFilmReducer';
 
 function AddInformation({ film, getFacts, facts }) {
     const [choice, setChoice] = useState(2);

@@ -1,16 +1,16 @@
 import './AboutFilm.scss';
 import { useParams } from 'react-router-dom';
 import React, { useEffect } from 'react';
-import { moviesApi } from '../api/api';
-import { getFilm } from '../store/aboutFilmReducer';
+import { moviesApi } from '../../api/api';
+import { getFilm } from '../../store/aboutFilmReducer';
 import { connect } from 'react-redux';
-import Header from '../Header/Header';
+import Header from '../../Header/Header';
 import { useNavigate } from "react-router-dom";
 import AddInformation from './AddInformation/AddInformation';
 import SimilarFilm from './SimilarFilm/SimilarFilm';
-import Footer from '../Footer/Footer';
+import Footer from '../../Footer/Footer';
 import * as Scroll from 'react-scroll';
-import {setFilms} from "../store/headerReducer";
+import {setFilms} from "../../store/headerReducer";
 
 function AboutFilm({ getFilm, film, setFilms }) {
     const { filmId } = useParams();
@@ -19,7 +19,6 @@ function AboutFilm({ getFilm, film, setFilms }) {
     let navigate = useNavigate();
 
     useEffect(() => {
-        // setFilms([]);
         moviesApi.getMovieInfo(filmId).then(response => getFilm(response));
         scrollToTop();
     }, [filmId])
@@ -35,7 +34,6 @@ function AboutFilm({ getFilm, film, setFilms }) {
                 return (<React.Fragment key={item.kinopoiskId}>
                     <img src={item.posterUrlPreview} className='aboutFilm__image' />
                     <div className="aboutFilm__wrapper">
-                        {/* <img src={item.posterUrlPreview} className='aboutFilm__wrapper__image' /> */}
                         <h1 className='aboutFilm__wrapper__name'>{item.nameRu}</h1>
                         <p className='aboutFilm__wrapper__nameOriginal'>{item.nameOriginal}<span className='aboutFilm__wrapper__nameOriginal__ageLimits'> {item.ratingAgeLimits.slice(3) + '+'}</span></p>
                         <a href={`https://gg.xooxo.cc/film/${item.kinopoiskId}`}><button className='aboutFilm__wrapper__viewing btn-description'>Смотреть</button></a>

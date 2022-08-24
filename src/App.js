@@ -4,9 +4,9 @@ import {
   Routes,
   Route
 } from "react-router-dom";
-import NormalyPage from './Container/NormalyPage';
-import AboutFilm from './AboutFilm/AboutFilm';
-import MoviePage from './Container/MoviePage';
+import NormalyPage from './Content/NormalyPage/NormalyPage';
+import AboutFilm from './Content/AboutFilm/AboutFilm';
+import MoviePage from './Content/MoviePage/MoviePage';
 
 function App() {
   return (

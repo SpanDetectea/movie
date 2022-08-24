@@ -25,7 +25,6 @@ const aboutFilmReducer = (state = initialState, action) => {
                 facts: [...action.data.items]
             };
         case GET_SIMILAR_FILM:
-            console.log(action.data);
             return {
                 ...state,
                 similars: [...action.data.items],
