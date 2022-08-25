@@ -3,23 +3,24 @@ import { useParams } from 'react-router-dom';
 import React, { useEffect } from 'react';
 import { moviesApi } from '../../api/api';
 import { getFilm } from '../../store/aboutFilmReducer';
-import { connect } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Header from '../../Header/Header';
-import { useNavigate } from "react-router-dom";
 import AddInformation from './AddInformation/AddInformation';
 import SimilarFilm from './SimilarFilm/SimilarFilm';
 import Footer from '../../Footer/Footer';
 import * as Scroll from 'react-scroll';
-import {setFilms} from "../../store/headerReducer";
+import ButtonBack from '../../common/Buttons/ButtonBack/ButtonBack';
 
-function AboutFilm({ getFilm, film, setFilms }) {
+function AboutFilm() {
     const { filmId } = useParams();
 
+    const film = useSelector(state => state.aboutFilm.film);
+    const dispatch = useDispatch();
+
     let scroll = Scroll.animateScroll;
-    let navigate = useNavigate();
 
     useEffect(() => {
-        moviesApi.getMovieInfo(filmId).then(response => getFilm(response));
+        moviesApi.getMovieInfo(filmId).then(response => dispatch(getFilm(response)));
         scrollToTop();
     }, [filmId])
 
@@ -29,7 +30,7 @@ function AboutFilm({ getFilm, film, setFilms }) {
     return <>
         <Header />
         <div className="aboutFilm">
-            <button onClick={() => navigate('/')} className='aboutFilm__btnBack'>{'<'} Назад</button>
+            <ButtonBack />
             {film.length > 0 && film.map((item) => {
                 return (<React.Fragment key={item.kinopoiskId}>
                     <img src={item.posterUrlPreview} className='aboutFilm__image' />
@@ -61,12 +62,4 @@ function AboutFilm({ getFilm, film, setFilms }) {
         <Footer />
     </>
 }
-const mapStateToProps = (state) => {
-    return {
-        film: state.aboutFilm.film
-    }
-}
-export default connect(mapStateToProps, {
-    getFilm,
-    setFilms
-})(AboutFilm);
+export default AboutFilm;

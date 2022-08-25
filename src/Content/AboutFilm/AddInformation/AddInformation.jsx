@@ -1,17 +1,20 @@
 import { useEffect, useState } from 'react';
-import { connect } from 'react-redux';
+import { connect, useDispatch, useSelector } from 'react-redux';
 import { moviesApi } from '../../../api/api';
 import './AddInformation.scss';
 import {getFacts} from '../../../store/aboutFilmReducer';
 
-function AddInformation({ film, getFacts, facts }) {
+function AddInformation() {
     const [choice, setChoice] = useState(2);
 
+    const dispatch = useDispatch();
+    const aboutFilm = useSelector(state => state.aboutFilm)
+
     useEffect(() => {
-        if (film.length > 0) {
-            moviesApi.getFacts(film[0].kinopoiskId).then(response => getFacts(response));
+        if (aboutFilm.film.length > 0) {
+            moviesApi.getFacts(aboutFilm.film[0].kinopoiskId).then(response => dispatch(getFacts(response)));
         }
-    }, [film])
+    }, [aboutFilm.film])
 
     function createMarkup(text) {
         return {__html: `${text}`};
@@ -27,13 +30,13 @@ function AddInformation({ film, getFacts, facts }) {
                 <div className={styleHeaderName(3)} onClick={() => setChoice(3)}>Ошибки</div>
             </div>
             <div className='addInformation__wrapper__content'>
-                {film.length > 0 && choice == 1 && film[0].description}
-                {facts.length > 0 && choice == 2 && facts.map((item, index) => {
+                {aboutFilm.film.length > 0 && choice == 1 && aboutFilm.film[0].description}
+                {aboutFilm.facts.length > 0 && choice == 2 && aboutFilm.facts.map((item, index) => {
                     if (item.type === 'FACT') {
                         return <div key = {index} dangerouslySetInnerHTML={createMarkup(item.text)} className = 'addInformation__wrapper__content__item' />;
                     }
                 })}
-                {facts.length > 0 && choice == 3 && facts.map((item, index) => {
+                {aboutFilm.facts.length > 0 && choice == 3 && aboutFilm.facts.map((item, index) => {
                     if (item.type === 'BLOOPER') {
                         return <div key = {index} dangerouslySetInnerHTML={createMarkup(item.text)} className = 'addInformation__wrapper__content__item' />;
                     }
@@ -42,12 +45,4 @@ function AddInformation({ film, getFacts, facts }) {
         </div>
     </div>
 }
-let mapStateToProps = (state) => {
-    return {
-        film: state.aboutFilm.film,
-        facts: state.aboutFilm.facts
-    }
-}
-export default connect(mapStateToProps, {
-    getFacts
-})(AddInformation);
+export default AddInformation;

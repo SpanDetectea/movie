@@ -1,4 +1,4 @@
-import { RATING__MAX, RATING__MIN, YEAR__MAX, YEAR__MIN } from "../Content/FilmsMain/filters/filtersConst";
+import { RATING__MAX, RATING__MIN, YEAR__MAX, YEAR__MIN } from "../Content/MoviePage/FilmsMain/filters/filtersConst";
 
 const SET__RATING = 'SET__RATING';
 const SET__YEAR = 'SET__YEAR';
@@ -38,7 +38,6 @@ let initialState = {
 const filmsMainReducer = (state = initialState, action) => {
     switch (action.type) {
         case SET__RATING: {
-            console.log('dsadsad');
             return { ...state,
                 rating: [...action.rating]
             }
