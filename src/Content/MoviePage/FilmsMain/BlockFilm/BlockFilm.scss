@@ -27,6 +27,7 @@
         align-self: center;
         justify-self: center;
         position: relative;
+        z-index: -1;
     }
 
     &__beView {

@@ -1,5 +1,5 @@
 import './FilmsMain.scss';
-import { setFilms, setRating, setYear } from '../../../store/filmsMainReducer';
+import { setFilms, setFilmsTC, setRating, setYear } from '../../../store/filmsMainReducer';
 import Filters from './filters/Filters';
 import { RATING__MAX, RATING__MIN, YEAR__MAX, YEAR__MIN } from '../../../consts/filtersConst';
 // import Genres from './filters/Genres';
@@ -10,11 +10,13 @@ import { useEffect } from 'react';
 import { moviesApi } from '../../../api/api';
 import { useState } from 'react';
 import BlockFilm from './BlockFilm/BlockFilm';
+import Preloader from '../../../common/Preloader/Preloader'
 
 function FilmsMain() {
     const rating = useSelector(state => state.filmsMain.rating);
     const year = useSelector(state => state.filmsMain.year);
     const films = useSelector(state => state.filmsMain.films);
+    const preloader = useSelector(state => state.filmsMain.preloaderState)
 
     const dispatch = useDispatch();
     const [curPage, setCurPage] = useState(1);
@@ -24,13 +26,14 @@ function FilmsMain() {
     }, [])
 
     const getFilmWithFilters = () => {
-        moviesApi.getFilmsFilters(
-            rating[0],
-            rating[1],
-            year[0],
-            year[1],
-            curPage
-        ).then(response => dispatch(setFilms(response)))
+        // moviesApi.getFilmsFilters(
+        //     rating[0],
+        //     rating[1],
+        //     year[0],
+        //     year[1],
+        //     curPage
+        // ).then(response => dispatch(setFilms(response)))
+        dispatch(setFilmsTC(rating,year,curPage));
     }
 
     return <div className="filmsMain">
@@ -53,6 +56,9 @@ function FilmsMain() {
             </div>
         </div>
         <div className="filmsMain__wrapper">
+            {/* {preloader && <Preloader />} */}
+            {/* <div className='test'></div> */}
+            <Preloader value = {preloader}/>
             {films.length > 0 && films.map(item => {
                 return <div key={item.kinopoiskId}>
                     {/* {item.nameRu ?? item.nameOriginal} */}
