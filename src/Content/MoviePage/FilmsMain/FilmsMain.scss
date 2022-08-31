@@ -1,0 +1,47 @@
+.filmsMain {
+    max-width: 1300px;
+    margin: 120px auto 0 auto;
+    padding: 0 20px;
+    display: grid;
+    grid-auto-columns: 1fr;
+    grid-auto-rows: 1fr;
+    grid-template-columns: 300px 1fr;
+    // grid-template-rows: 100px 1fr;
+    gap: 0px 0px;
+    grid-template-areas:
+        // "menu wrapper"
+        "menu wrapper";
+
+    &__menu {
+        position: fixed;
+        align-self: start;
+        grid-area: menu;
+
+        &__header {
+            // grid-area: header;
+
+            &__description {
+                margin: 20px 0 50px 0;
+            }
+        }
+
+        &__filter {
+            // grid-area: filter;
+
+            &__btns {
+                margin-top: 20px;
+                width: 200px;
+                display: flex;
+                justify-content: space-between;
+            }
+        }
+    }
+
+    &__wrapper {
+        grid-area: wrapper;
+    }
+}
+
+.reverseHide {
+    transform: rotate(90deg) !important;
+}

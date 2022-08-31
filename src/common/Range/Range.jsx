@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { Range, getTrackBackground } from "react-range";
 
-const RangeComponent = ({ratingValues, setRatingValues, setRating, minV, maxV, setValues
+const RangeComponent = ({ratingValues, setRatingValues, minV=1, maxV=10, setValues
 }) => {
   const STEP = 1;
   const MIN = minV;
   const MAX = maxV;
   let values = ratingValues;
-  // console.log(ratingValues);
+  console.log(ratingValues);
   return (
     <Range
       values={values}
@@ -38,7 +38,7 @@ const RangeComponent = ({ratingValues, setRatingValues, setRating, minV, maxV, s
               borderRadius: "4px",
               background: getTrackBackground({
                 values,
-                colors: ["#ccc", "#548BF4", "#ccc"],
+                colors: ["#ccc", "lightcoral", "#ccc"],
                 min: MIN,
                 max: MAX
               }),

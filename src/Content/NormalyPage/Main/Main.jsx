@@ -6,7 +6,7 @@ import { getFilms, getMoreFilms } from '../../../store/mainReducer';
 import { NavLink } from 'react-router-dom'
 import Rating from '../../../common/Rating/Rating';
 import NavLinkFilm from '../../../common/NavLinks/NavLinkFilm/NavLinkFilm';
-import H1 from '../../../common/H1/H1';
+import H from '../../../common/H/H';
 import ButtonFilm from '../../../common/Buttons/ButtonFilm/ButtonFilm';
 
 
@@ -30,7 +30,7 @@ function Main() {
 
     return <div className="main">
         <div className="main__header">
-            <H1 value={'Новые фильмы'} />
+            <H type = {1} value={'Новые фильмы'} />
             <NavLink to='/movie'>
                 <ButtonFilm value={'Смотреть все'} />
             </NavLink>

@@ -4,21 +4,28 @@ import { moviesApi } from '../api/api';
 import './Header.scss';
 import Navigation from './Navigation/Navigation';
 import { setFilms } from '../store/headerReducer';
-import { connect } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
-function Header({ films, setFilms }) {
+function Header() {
     const [search, setSearch] = useState('');
+    const dispatch = useDispatch();
+    const films = useSelector(state => state.header.films)
 
     const getFilms = (word) => {
-        moviesApi.getFilmsSearch(word, 1).then(response => setFilms(response.films))
+        moviesApi.getFilmsSearch(word, 1).then(response => dispatch(setFilms(response.films)))
         setSearch(word);
     }
     const clearInput = (e) => {
+        // setTimeout(() => {
+        //     setSearch('');
+        //     setFilms([]);
+        // }, 0);  
+        // paradoks?
         setTimeout(() => {
             setSearch('');
-            setFilms([]);
-        }, 0);       
+            dispatch(setFilms([]));
+        }, 500);      
     }
 
     return <div className='header'>
@@ -43,10 +50,4 @@ function Header({ films, setFilms }) {
     </div>
 }
 
-const mapStateToProps = (state) => {
-    return {
-        films: state.header.films
-    }
-}
-
-export default connect(mapStateToProps, { setFilms })(Header);
+export default Header;
