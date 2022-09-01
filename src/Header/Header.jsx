@@ -3,14 +3,16 @@ import { useState } from 'react';
 import { moviesApi } from '../api/api';
 import './Header.scss';
 import Navigation from './Navigation/Navigation';
-import { setFilms } from '../store/headerReducer';
+import { setFilms, togglePreloaderTC } from '../store/headerReducer';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import Preloader from '../common/Preloader/Preloader';
 
 function Header() {
     const [search, setSearch] = useState('');
     const dispatch = useDispatch();
     const films = useSelector(state => state.header.films)
+    const preloader = useSelector(state => state.header.preloader)
 
     const getFilms = (word) => {
         moviesApi.getFilmsSearch(word, 1).then(response => dispatch(setFilms(response.films)))
@@ -25,14 +27,14 @@ function Header() {
         setTimeout(() => {
             setSearch('');
             dispatch(setFilms([]));
-        }, 500);      
+        }, 500);
     }
 
     return <div className='header'>
         <div className="header__name">
             <Navigation />
         </div>
-        <div className="header__search" onBlur={clearInput} tabIndex = {1} autoFocus>
+        <div className="header__search" onBlur={clearInput} tabIndex={1} autoFocus>
             <input type="text" className='header__search__text' placeholder='Фильмы, сериалы, мультфильмы...' value={search} onInput={(e) => getFilms(e.target.value)} />
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Vector_search_icon.svg/111px-Vector_search_icon.svg.png" alt="" className='header__search__lens' />
             <div className='header__search__wrapper' >
@@ -46,7 +48,10 @@ function Header() {
                 })}
             </div>
         </div>
-        <div className="header__signin">Войти</div>
+        <div className="header__signin">
+            <NavLink to = {'/profile'}> Войти</NavLink>
+            {/* dsad */}
+        </div>
     </div>
 }
 

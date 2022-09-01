@@ -11,6 +11,7 @@ import { moviesApi } from '../../../api/api';
 import { useState } from 'react';
 import BlockFilm from './BlockFilm/BlockFilm';
 import Preloader from '../../../common/Preloader/Preloader'
+import Pagination from './Pagination/Pagination';
 
 function FilmsMain() {
     const rating = useSelector(state => state.filmsMain.rating);
@@ -22,19 +23,14 @@ function FilmsMain() {
     const [curPage, setCurPage] = useState(1);
 
     useEffect(() => {
-        moviesApi.getFilmsFilters().then(response => dispatch(setFilms(response)))
+        dispatch(setFilmsTC());
     }, [])
+    useEffect(() => {
+        dispatch(setFilmsTC(rating, year, curPage))
+    }, [curPage])
 
-    const getFilmWithFilters = () => {
-        // moviesApi.getFilmsFilters(
-        //     rating[0],
-        //     rating[1],
-        //     year[0],
-        //     year[1],
-        //     curPage
-        // ).then(response => dispatch(setFilms(response)))
-        dispatch(setFilmsTC(rating,year,curPage));
-    }
+    const getFilmWithFilters = () => dispatch(setFilmsTC(rating, year, curPage));
+    const getFilmWithoutFilters = () => dispatch(setFilmsTC());
 
     return <div className="filmsMain">
         <div className="filmsMain__menu">
@@ -50,21 +46,20 @@ function FilmsMain() {
                     <div onClick={getFilmWithFilters}>
                         <ButtonFilm value={'Применить'} width='90px' display='inline' />
                     </div>
-                    <div><ButtonFilm value={'Сброс'} width='90px' display='inline' />
+                    <div onClick={getFilmWithoutFilters}>
+                        <ButtonFilm value={'Сброс'} width='90px' display='inline' />
                     </div>
                 </div>
             </div>
         </div>
         <div className="filmsMain__wrapper">
-            {/* {preloader && <Preloader />} */}
-            {/* <div className='test'></div> */}
-            <Preloader value = {preloader}/>
+            <Preloader value={preloader} />
             {films.length > 0 && films.map(item => {
                 return <div key={item.kinopoiskId}>
-                    {/* {item.nameRu ?? item.nameOriginal} */}
                     <BlockFilm film={item} />
                 </div>
             })}
+            <Pagination curPage={curPage} setCurPage = {setCurPage}/>
         </div>
     </div>
 }

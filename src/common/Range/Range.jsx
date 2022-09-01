@@ -7,7 +7,6 @@ const RangeComponent = ({ratingValues, setRatingValues, minV=1, maxV=10, setValu
   const MIN = minV;
   const MAX = maxV;
   let values = ratingValues;
-  console.log(ratingValues);
   return (
     <Range
       values={values}

@@ -84,11 +84,8 @@ export const setFilms = (films) => {
 export const togglePreloaderState = () => {
     return { type: TOGGLE__PRELOADER }
 }
-export const setFilmsTC = (rating, year, curPage) => {
-    // console.log('tyt')
+export const setFilmsTC = (rating = initialState.rating, year = initialState.year, curPage = 1) => {
     return (dispatch) => {
-        // console.log('dsadsadsa')
-        // dispatch(setFilms([3,5]))
         dispatch(togglePreloaderState());
         moviesApi.getFilmsFilters(
             rating[0],
@@ -97,7 +94,6 @@ export const setFilmsTC = (rating, year, curPage) => {
             year[1],
             curPage
         ).then(data => {
-            console.log('dsadsadsa')
             dispatch(setFilms(data));
             dispatch(togglePreloaderState());
         });

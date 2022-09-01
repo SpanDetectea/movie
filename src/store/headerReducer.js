@@ -1,7 +1,8 @@
 const GET__FILMS = 'GET__FILMS';
 
 let initialState = {
-    films: []
+    films: [],
+    isAuth: false
 }
 const headerReducer = (state = initialState, action) => {
 switch (action.type) {

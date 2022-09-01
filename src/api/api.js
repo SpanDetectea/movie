@@ -36,6 +36,6 @@ export const moviesApi = {
         page = 1,
         type = 'FILM',
     ) {
-        return instance.get(`/api/v2.2/films?type=${type}&ratingFrom=${ratingFrom}&ratingTo=${RatingTo}&yearFrom${yearFrom}&ratingTo${yearTo}&page=${page}`).then(response => response.data);
+        return instance.get(`/api/v2.2/films?type=${type}&ratingFrom=${ratingFrom}&ratingTo=${RatingTo}&yearFrom=${yearFrom}&ratingTo=${yearTo}&page=${page}`).then(response => response.data);
     },
 }

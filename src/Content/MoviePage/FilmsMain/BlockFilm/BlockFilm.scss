@@ -13,9 +13,19 @@
         "poster year rating beView"
         "poster description rating beView";
 
+    @media screen and (max-width:850px) {
+        font-size: 0.7em;
+        grid-template-columns: 60px 1fr 20px 107px;
+        padding: 10px 5px;
+    }
+
     &__poster {
-        width: 100%;
+        width: 70px;
+        height: 100px;
         grid-area: poster;
+        @media screen and (max-width:850px) {
+            width: 60px;
+        }
     }
 
     &__name {
@@ -35,6 +45,7 @@
         height: 30%;
         align-self: center;
         justify-self: flex-end;
+
         &__btn {
             height: 100%;
             background: none;
