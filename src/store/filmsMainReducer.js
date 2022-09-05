@@ -85,18 +85,17 @@ export const togglePreloaderState = () => {
     return { type: TOGGLE__PRELOADER }
 }
 export const setFilmsTC = (rating = initialState.rating, year = initialState.year, curPage = 1) => {
-    return (dispatch) => {
+    return async (dispatch) => {
         dispatch(togglePreloaderState());
-        moviesApi.getFilmsFilters(
+        let response = await moviesApi.getFilmsFilters(
             rating[0],
             rating[1],
             year[0],
             year[1],
             curPage
-        ).then(data => {
-            dispatch(setFilms(data));
-            dispatch(togglePreloaderState());
-        });
+        )
+        dispatch(setFilms(response));
+        dispatch(togglePreloaderState());
     }
 }
 
