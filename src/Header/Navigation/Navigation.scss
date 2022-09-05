@@ -1,94 +1,7 @@
-// .navigation {
-//     width: 100%;
-//     display: flex;
-//     flex-direction: column;
-//     padding: 0 0 0 50px;
-
-//     &__wrapper {
-//         width: 100%;
-//         display: none;
-//         position: fixed;
-//         top: 0;
-//         padding: 70px 20px 20px 20px;
-//         border-radius: 0 0 12px 12px;
-//         left: 0;
-//         background: rgb(75, 73, 73);
-//         width: 25%;
-//         user-select: none;
-//         @media screen and (max-width: 660px) {
-//             padding: 70px 20px 20px 5px;
-//             width: 40%;
-//             font-size: 0.8em;
-//         }
-//         & ul {
-//             list-style-type: none;
-//             display: flex;
-//             flex-direction: column;
-//             align-items: flex-start;
-//             margin-left: 25%;
-
-//             li {
-//                 padding-bottom: 20px;
-//             }
-//         }
-//     }
-
-//     a {
-//         text-decoration: none;
-//         color: rgb(153, 153, 153);
-//         margin: 0 0 8px 0;
-//         padding-bottom: 20px;
-
-//         &:hover {
-//             color: rgb(224, 224, 224);
-//         }
-//     }
-
-//     #burger {
-//         display: none;
-
-//         &:checked+label+nav {
-//             display: block;
-//             animation: show .5s ease;
-//         }
-
-//         &:checked+.navigation__burger::before {
-//             content: '⮾';
-//             cursor: pointer;
-//         }
-//     }
-
-//     &__burger {
-//         display: block;
-//         position: fixed;
-//         width: 30px;
-//         text-align: center;
-//         left: 20px;
-//         top: 22px;
-//         z-index: 999;
-
-//         &::before {
-//             content: '☰';
-//             cursor: pointer;
-//         }
-//     }
-// }
-
-// @keyframes show {
-//     0% {
-//         opacity: 0;
-//     }
-
-//     100% {
-//         opacity: 1;
-//     }
-// }
 .navigation {
     &__menu {
         width: 30px;
         height: 30px;
-        // margin-left: 20px;
-        // margin-top: 70px;
         position: relative;
         left: 15px;
         cursor: pointer;
@@ -121,7 +34,8 @@
         }
     }
     &__wrapper {
-        width: 30%;
+        min-width: 30%;
+        padding: 0 5px;
         height: 30%;
         background: #1f1d1d;
         position: fixed;
@@ -144,6 +58,6 @@
         }
     }
     &__active {
-        transform: translateY(-150%);
+        transform: translateY(-200%);
     }
 }
