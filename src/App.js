@@ -5,7 +5,7 @@ import {
   Route
 } from "react-router-dom";
 import NormalyPage from './Content/NormalyPage/NormalyPage';
-import AboutFilm from './Content/AboutFilm/AboutFilm';
+import AboutFilmPage from './Content/AboutFilmPage/AboutFilmPage';
 import MoviePage from './Content/MoviePage/MoviePage';
 import Profile from './Content/ProfilePage/Profile';
 import AuthPage from './Content/AuthPage/AuthPage';
@@ -16,7 +16,7 @@ function App() {
       {/* <Header /> */}
       <Routes>
         <Route path="/" element = {<NormalyPage/> }/>
-        <Route path="/film/:filmId" element = {<AboutFilm/> }/>
+        <Route path="/film/:filmId" element = {<AboutFilmPage/> }/>
         <Route path="/movie" element = {<MoviePage /> }/>
         <Route path="/profile" element = {<Profile /> }/>
         <Route path="/auth" element = {<AuthPage /> }/>

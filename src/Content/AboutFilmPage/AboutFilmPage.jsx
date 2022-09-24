@@ -1,4 +1,4 @@
-import './AboutFilm.scss';
+import './AboutFilmPage.scss';
 import { useParams } from 'react-router-dom';
 import React, { useEffect } from 'react';
 import { moviesApi } from '../../api/api';

@@ -17,7 +17,7 @@ function Header() {
         setSearch(word);
     }
     const clearInput = (e) => {
-        setTimeout(() => {
+        let timerId = setTimeout(() => {
             setSearch('');
             dispatch(setSearchFilms([]));
         }, 500);
