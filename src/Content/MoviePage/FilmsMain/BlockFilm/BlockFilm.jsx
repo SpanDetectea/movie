@@ -21,7 +21,6 @@ function BlockFilm({ film }) {
             </div>
             <div className="blockFilm__rating">
                 <Rating rating={film.ratingKinopoisk} type='blockFilm' />
-                {/* {film.ratingKinopoisk} */}
             </div>
             <div className="blockFilm__beView">
                 <button className="blockFilm__beView__btn">

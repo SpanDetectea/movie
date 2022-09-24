@@ -2,7 +2,6 @@ import './FilmsMain.scss';
 import { setFilms, setFilmsTC, setRating, setYear } from '../../../store/filmsMainReducer';
 import Filters from './filters/Filters';
 import { RATING__MAX, RATING__MIN, YEAR__MAX, YEAR__MIN } from '../../../consts/filtersConst';
-// import Genres from './filters/Genres';
 import H from '../../../common/H/H';
 import ButtonFilm from '../../../common/Buttons/ButtonFilm/ButtonFilm';
 import { useDispatch, useSelector } from 'react-redux';
@@ -41,7 +40,6 @@ function FilmsMain() {
             <div className="filmsMain__menu__filter">
                 <Filters name='Рейтинг' min={RATING__MIN} max={RATING__MAX} setValues={(e) => dispatch(setRating(e))} />
                 <Filters name='Год' min={YEAR__MIN} max={YEAR__MAX} setValues={(e) => dispatch(setYear(e))} />
-                {/* <Genres /> */}
                 <div className="filmsMain__menu__filter__btns">
                     <div onClick={getFilmWithFilters}>
                         <ButtonFilm value={'Применить'} width='90px' display='inline' />

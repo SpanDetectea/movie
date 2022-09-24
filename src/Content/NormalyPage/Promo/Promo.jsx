@@ -1,8 +1,6 @@
-import { ControlBar, Player, ReplayControl } from 'video-react';
 import './Promo.scss';
 import promo from '../../../videos/promo.mp4';
 import arrow from '../../../images/promo-arrow-right.png';
-import { moviesApi } from '../../../api/api';
 import { NavLink } from 'react-router-dom';
 
 function Promo() {

@@ -6,8 +6,6 @@ import './Navigation.scss';
 function Navigation() {
     const [active, setActive] = useState(false)
     return <div className='navigation'>
-        {/* <input type="checkbox" id='burger'/> */}
-        {/* <label htmlFor="burger" className='navigation__burger'></label> */}
         <div className="navigation__menu" onClick={()=>setActive(!active)}>
             <span className='navigation__menu__cLine'/>
         </div>

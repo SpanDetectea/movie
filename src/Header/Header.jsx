@@ -19,11 +19,6 @@ function Header() {
         setSearch(word);
     }
     const clearInput = (e) => {
-        // setTimeout(() => {
-        //     setSearch('');
-        //     setFilms([]);
-        // }, 0);  
-        // paradoks?
         setTimeout(() => {
             setSearch('');
             dispatch(setFilms([]));
@@ -52,7 +47,6 @@ function Header() {
         </div>
         <div className="header__signin">
             <NavLink to={'/profile'}> Войти</NavLink>
-            {/* dsad */}
         </div>
     </div>
 }

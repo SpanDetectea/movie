@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import RangeComponent from '../../../../common/Range/Range';
-// import '../FilmsMain.scss';
 import './Filter.scss';
 import { setRating } from '../../../../store/filmsMainReducer';
 import { connect } from 'react-redux'
