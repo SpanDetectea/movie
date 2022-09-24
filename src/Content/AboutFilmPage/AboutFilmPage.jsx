@@ -35,8 +35,8 @@ function AboutFilm() {
                 return (<React.Fragment key={item.kinopoiskId}>
                     <img src={item.posterUrlPreview} className='aboutFilm__image' alt=''/>
                     <div className="aboutFilm__wrapper">
-                        <h1 className='aboutFilm__wrapper__name'>{item.nameRu}</h1>
-                        <p className='aboutFilm__wrapper__nameOriginal'>{item.nameOriginal}<span className='aboutFilm__wrapper__nameOriginal__ageLimits'> {item.ratingAgeLimits.slice(3) + '+'}</span></p>
+                        <h1 className='aboutFilm__wrapper__name'>{item.nameRu ?? item.nameEn ?? item.nameOriginal ?? 'Нет названия'}</h1>
+                        <p className='aboutFilm__wrapper__nameOriginal'>{item.nameOriginal ?? 'Нет названия'}<span className='aboutFilm__wrapper__nameOriginal__ageLimits'> {item.ratingAgeLimits && item.ratingAgeLimits.slice(3) + '+'}</span></p>
                         <a href={`https://gg.xooxo.cc/film/${item.kinopoiskId}`}><button className='aboutFilm__wrapper__viewing btn-description'>Смотреть</button></a>
                         <button className='aboutFilm__wrapper__favorites btn-description'>Буду смотреть</button>
                         <h2 className='aboutFilm__wrapper__description'>О фильме</h2>
@@ -48,10 +48,10 @@ function AboutFilm() {
                             <li className='aboutFilm__wrapper__list__par'><span>Жанр</span><span>{item.genres.map((i, index) => {
                                 return index === item.genres.length - 1 ? `${i.genre}` : `${i.genre}, `;
                             })}</span></li>
-                            <li className='aboutFilm__wrapper__list__par'><span>Слоган</span><span>{item.slogan}</span></li>
-                            <li className='aboutFilm__wrapper__list__par'><span>Возраст</span><span>{item.ratingAgeLimits.slice(3) + '+'}</span></li>
-                            <li className='aboutFilm__wrapper__list__par'><span>Время</span><span>{item.filmLength}</span></li>
-                            <li className='aboutFilm__wrapper__list__par'><span>Рейтинг</span><span>{item.ratingKinopoisk}</span></li>
+                            <li className='aboutFilm__wrapper__list__par'><span>Слоган</span><span>{item.slogan ?? 'Нет слогана'}</span></li>
+                            <li className='aboutFilm__wrapper__list__par'><span>Возраст</span><span>{item.ratingAgeLimits && item.ratingAgeLimits.slice(3) + '+'}</span></li>
+                            <li className='aboutFilm__wrapper__list__par'><span>Время</span><span>{item.filmLength ?? 'Нет продолжительности'}</span></li>
+                            <li className='aboutFilm__wrapper__list__par'><span>Рейтинг</span><span>{item.ratingKinopoisk ?? 'Нет рейтинга'}</span></li>
                         </ul>
                     </div>
                 </React.Fragment>)
