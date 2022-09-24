@@ -2,7 +2,7 @@ import './Main.scss';
 import { useEffect, useState } from 'react';
 import { moviesApi } from '../../../api/api';
 import { useDispatch, useSelector } from 'react-redux';
-import { getFilms, getMoreFilms } from '../../../store/mainReducer';
+import { getFilms, getMoreFilms } from '../../../store/action';
 import { NavLink } from 'react-router-dom'
 import Rating from '../../../common/Rating/Rating';
 import NavLinkFilm from '../../../common/NavLinks/NavLinkFilm/NavLinkFilm';

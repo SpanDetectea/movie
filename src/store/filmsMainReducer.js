@@ -1,10 +1,5 @@
-import { moviesApi } from "../api/api";
 import { RATING__MAX, RATING__MIN, YEAR__MAX, YEAR__MIN } from "../consts/filtersConst";
-
-const SET__RATING = 'SET__RATING';
-const SET__YEAR = 'SET__YEAR';
-const SET__FILMS = 'SET__FILMS';
-const TOGGLE__PRELOADER = 'TOGGLE__PRELOADER';
+import {SET__RATING, SET__YEAR, SET__FILMS, TOGGLE__PRELOADER} from "./actionConst"
 
 let initialState = {
     rating: [RATING__MIN, RATING__MAX],
@@ -69,33 +64,6 @@ const filmsMainReducer = (state = initialState, action) => {
             }
         }
         default: return state;
-    }
-}
-
-export const setRating = (rating) => {
-    return { type: SET__RATING, rating }
-}
-export const setYear = (year) => {
-    return { type: SET__YEAR, year }
-}
-export const setFilms = (films) => {
-    return { type: SET__FILMS, films }
-}
-export const togglePreloaderState = () => {
-    return { type: TOGGLE__PRELOADER }
-}
-export const setFilmsTC = (rating = initialState.rating, year = initialState.year, curPage = 1) => {
-    return async (dispatch) => {
-        dispatch(togglePreloaderState());
-        let response = await moviesApi.getFilmsFilters(
-            rating[0],
-            rating[1],
-            year[0],
-            year[1],
-            curPage
-        )
-        dispatch(setFilms(response));
-        dispatch(togglePreloaderState());
     }
 }
 

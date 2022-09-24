@@ -3,25 +3,23 @@ import { useState } from 'react';
 import { moviesApi } from '../api/api';
 import './Header.scss';
 import Navigation from './Navigation/Navigation';
-import { setFilms, togglePreloaderTC } from '../store/headerReducer';
+import { setSearchFilms } from '../store/action';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import Preloader from '../common/Preloader/Preloader';
 
 function Header() {
     const [search, setSearch] = useState('');
     const dispatch = useDispatch();
     const films = useSelector(state => state.header.films)
-    const preloader = useSelector(state => state.header.preloader)
 
     const getFilms = (word) => {
-        moviesApi.getFilmsSearch(word, 1).then(response => dispatch(setFilms(response.films)))
+        moviesApi.getFilmsSearch(word, 1).then(response => dispatch(setSearchFilms(response.films)))
         setSearch(word);
     }
     const clearInput = (e) => {
         setTimeout(() => {
             setSearch('');
-            dispatch(setFilms([]));
+            dispatch(setSearchFilms([]));
         }, 500);
     }
 

@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { Range, getTrackBackground } from "react-range";
 
 const RangeComponent = ({ratingValues, setRatingValues, minV=1, maxV=10, setValues

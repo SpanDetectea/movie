@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import { moviesApi } from '../../../api/api';
 import H from '../../../common/H/H';
 import NavLinkFilm from '../../../common/NavLinks/NavLinkFilm/NavLinkFilm';
-import { getSimilatFilms } from '../../../store/aboutFilmReducer'
+import { getSimilatFilms } from '../../../store/action'
 import './SimilarFilm.scss';
 
 function SimilarFilm() {

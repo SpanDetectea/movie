@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
-import { connect, useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { moviesApi } from '../../../api/api';
 import './AddInformation.scss';
-import {getFacts} from '../../../store/aboutFilmReducer';
+import {getFacts} from '../../../store/action';
 
 function AddInformation() {
     const [choice, setChoice] = useState(2);
@@ -30,13 +30,13 @@ function AddInformation() {
                 <div className={styleHeaderName(3)} onClick={() => setChoice(3)}>Ошибки</div>
             </div>
             <div className='addInformation__wrapper__content'>
-                {aboutFilm.film.length > 0 && choice == 1 && aboutFilm.film[0].description}
-                {aboutFilm.facts.length > 0 && choice == 2 && aboutFilm.facts.map((item, index) => {
+                {aboutFilm.film.length > 0 && choice === 1 && aboutFilm.film[0].description}
+                {aboutFilm.facts.length > 0 && choice === 2 && aboutFilm.facts.map((item, index) => {
                     if (item.type === 'FACT') {
                         return <div key = {index} dangerouslySetInnerHTML={createMarkup(item.text)} className = 'addInformation__wrapper__content__item' />;
                     }
                 })}
-                {aboutFilm.facts.length > 0 && choice == 3 && aboutFilm.facts.map((item, index) => {
+                {aboutFilm.facts.length > 0 && choice === 3 && aboutFilm.facts.map((item, index) => {
                     if (item.type === 'BLOOPER') {
                         return <div key = {index} dangerouslySetInnerHTML={createMarkup(item.text)} className = 'addInformation__wrapper__content__item' />;
                     }

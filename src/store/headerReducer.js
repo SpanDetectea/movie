@@ -1,4 +1,4 @@
-const GET__FILMS = 'GET__FILMS';
+import {GET__SEARCH__FILMS} from './actionConst'
 
 let initialState = {
     films: [],
@@ -6,14 +6,11 @@ let initialState = {
 }
 const headerReducer = (state = initialState, action) => {
 switch (action.type) {
-    case GET__FILMS:
+    case GET__SEARCH__FILMS:
         return {...state, films: [...action.films]}
     default: return state;
 }
 
-}
-export const setFilms = (films) => {
-    return {type: GET__FILMS, films}
 }
 
 export default headerReducer;

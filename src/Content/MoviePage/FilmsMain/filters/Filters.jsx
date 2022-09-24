@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import RangeComponent from '../../../../common/Range/Range';
 import './Filter.scss';
-import { setRating } from '../../../../store/filmsMainReducer';
+import { setRating } from '../../../../store/action';
 import { connect } from 'react-redux'
 import H from '../../../../common/H/H';
 

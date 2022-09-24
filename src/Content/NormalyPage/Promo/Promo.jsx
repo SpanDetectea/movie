@@ -12,7 +12,7 @@ function Promo() {
             <NavLink to={'/film/' + 666}>
                 <button className='promo__wrapper__more'>
                     Подробнее
-                    <img src={arrow} className='promo__wrapper__more__arrow' />
+                    <img src={arrow} className='promo__wrapper__more__arrow' alt=''/>
                 </button>
             </NavLink>
         </div>

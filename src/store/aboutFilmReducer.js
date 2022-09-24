@@ -1,7 +1,4 @@
-
-const GET_FILM = 'GET_FILM';
-const GET_FACTS = 'GET_FACTS';
-const GET_SIMILAR_FILM = 'GET_SIMILAR_FILM';
+import {GET_FILM, GET_FACTS, GET_SIMILAR_FILM} from './actionConst';
 
 let initialState = {
     film: [],
@@ -33,14 +30,5 @@ const aboutFilmReducer = (state = initialState, action) => {
         default: return state;
     }
 }
-export const getFilm = (data) => {
-    return {type: GET_FILM, data}
-};
-export const getFacts = (data) => {
-    return {type: GET_FACTS, data}
-};
-export const getSimilatFilms = (data) => {
-    return {type: GET_SIMILAR_FILM, data}
-};
 
 export default aboutFilmReducer;

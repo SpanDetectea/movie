@@ -2,7 +2,7 @@ import './AboutFilm.scss';
 import { useParams } from 'react-router-dom';
 import React, { useEffect } from 'react';
 import { moviesApi } from '../../api/api';
-import { getFilm } from '../../store/aboutFilmReducer';
+import { getFilm } from '../../store/action';
 import { useDispatch, useSelector } from 'react-redux';
 import Header from '../../Header/Header';
 import AddInformation from './AddInformation/AddInformation';
@@ -33,7 +33,7 @@ function AboutFilm() {
             <ButtonBack />
             {film.length > 0 && film.map((item) => {
                 return (<React.Fragment key={item.kinopoiskId}>
-                    <img src={item.posterUrlPreview} className='aboutFilm__image' />
+                    <img src={item.posterUrlPreview} className='aboutFilm__image' alt=''/>
                     <div className="aboutFilm__wrapper">
                         <h1 className='aboutFilm__wrapper__name'>{item.nameRu}</h1>
                         <p className='aboutFilm__wrapper__nameOriginal'>{item.nameOriginal}<span className='aboutFilm__wrapper__nameOriginal__ageLimits'> {item.ratingAgeLimits.slice(3) + '+'}</span></p>

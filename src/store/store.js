@@ -1,4 +1,4 @@
-import { combineReducers, createStore, compose, applyMiddleware } from "redux";
+import { combineReducers, createStore, applyMiddleware } from "redux";
 import {composeWithDevTools} from 'redux-devtools-extension';
 import thunk from "redux-thunk";
 import aboutFilmReducer from "./aboutFilmReducer";
@@ -18,7 +18,6 @@ let store = createStore(reducers,
     composeWithDevTools(
         applyMiddleware(thunk),
     )
-
 );
 
 window.store = store;

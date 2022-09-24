@@ -1,13 +1,12 @@
 import './FilmsMain.scss';
-import { setFilms, setFilmsTC, setRating, setYear } from '../../../store/filmsMainReducer';
+import { setRating, setYear } from '../../../store/action';
+import { setFilmsTC} from '../../../store/ThunkCreator';
 import Filters from './filters/Filters';
 import { RATING__MAX, RATING__MIN, YEAR__MAX, YEAR__MIN } from '../../../consts/filtersConst';
 import H from '../../../common/H/H';
 import ButtonFilm from '../../../common/Buttons/ButtonFilm/ButtonFilm';
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
-import { moviesApi } from '../../../api/api';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import BlockFilm from './BlockFilm/BlockFilm';
 import Preloader from '../../../common/Preloader/Preloader'
 import Pagination from './Pagination/Pagination';
