@@ -16,6 +16,7 @@ function Promo() {
                 </button>
             </NavLink>
         </div>
+        <div className='promo__blackBackground'></div>
         <div className="promo__video">
             <video autoPlay muted loop playsInline src={promo} width='100%'>
             </video>

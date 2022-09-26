@@ -3,7 +3,7 @@ import {useSelector} from 'react-redux';
 
 export const AuthRedirect = (Component) => {
     const Auth = () => {
-        const auth = useSelector(state => state.header.isAuth);
+        const auth = useSelector(state => state.auth.isAuth);
         if (!auth) {
             return <Navigate to = '/auth' />
         }

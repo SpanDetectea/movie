@@ -5,12 +5,14 @@ import aboutFilmReducer from "./aboutFilmReducer";
 import filmsMainReducer from "./filmsMainReducer";
 import headerReducer from "./headerReducer";
 import mainReducer from "./mainReducer";
+import authReducer from './authReducer';
 
 let reducers = combineReducers({
     main: mainReducer,
     aboutFilm: aboutFilmReducer,
     header: headerReducer,
-    filmsMain: filmsMainReducer
+    filmsMain: filmsMainReducer,
+    auth: authReducer
 });
 
 

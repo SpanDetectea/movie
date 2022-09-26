@@ -9,3 +9,4 @@ export const GET__SEARCH__FILMS = 'GET__FILMS';
 export const GET_FILMS = 'GET_FILMS';
 export const GET_MORE_FILMS = 'GET_MORE_FILMS';
 export const GET_INFO_ABOUT_FILM = 'GET_INFO_ABOUT_FILM';
+export const SET_AUTH = 'SET_AUTH';

@@ -2,7 +2,7 @@ import {
     GET_FILM, GET_FACTS, GET_SIMILAR_FILM,
     SET__RATING, SET__YEAR, SET__FILMS, TOGGLE__PRELOADER,
     GET__SEARCH__FILMS, GET_FILMS, GET_MORE_FILMS,
-    GET_INFO_ABOUT_FILM
+    GET_INFO_ABOUT_FILM, SET_AUTH
 }
     from './actionConst';
 
@@ -38,4 +38,7 @@ export const getMoreFilms = (films) => {
 }
 export const getInfoAboutFilm = (filmId) => {
     return {type: GET_INFO_ABOUT_FILM, filmId}
+}
+export const setAuth = (isAuth) => {
+    return {type: SET_AUTH, isAuth}
 }
