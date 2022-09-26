@@ -21,9 +21,6 @@ function FilmsMain() {
     const [curPage, setCurPage] = useState(1);
 
     useEffect(() => {
-        dispatch(setFilmsTC());
-    }, [])
-    useEffect(() => {
         dispatch(setFilmsTC(rating, year, curPage))
     }, [curPage])
 

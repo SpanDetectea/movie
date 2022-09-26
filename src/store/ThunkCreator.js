@@ -1,7 +1,7 @@
 import { moviesApi } from "../api/api";
 import { setFilms, togglePreloaderState } from "./action";
 
-export const setFilmsTC = (rating, year, curPage = 1) => {
+export const setFilmsTC = (rating = [0,10], year = [1963, 2022], curPage = 1) => {
     return async (dispatch) => {
         dispatch(togglePreloaderState());
         let response = await moviesApi.getFilmsFilters(
